@@ -41,12 +41,15 @@ let myApiFlipboks = new ApiFlipbooks({ target: './target-folder' })
 Every flipbook file is expected to export an Object with the following properties:
 
 ```javascript
-{
+module.exports = {
+
   // title of the flipbook (!) required
   title: 'Title of my flipbook'
+
   // array of api calls/test to be performed (!) required
   scenes: [
     {
+
       // http request config  (!) required
       request: {  // 
         // options for node 'http' : 'https' (!) required
@@ -54,14 +57,17 @@ Every flipbook file is expected to export an Object with the following propertie
         // request body (?) optional
         body: {}
       },
+
       // validation schemas (!) required
       validation: {
         // expected status code (?) optional
         statusCode: 200,
+
         // validation schema for response headers as 'key': 'value' (?) optional
         headerSchema: {
           'access-control-allow-credentials': 'true'
         },
+
         // validation schema for body (?) optional
         bodySchema: {
           // expected body key (?) optional
@@ -74,12 +80,15 @@ Every flipbook file is expected to export an Object with the following propertie
         }
       }
     },
+
     // lifecicle hooks for this scene
     lifecicle: {
+
       // before the scene is run, access history and scene needs to return the scene (?) optional
       async before (history, scene) {
         return scene
       },
+
       // adter the scene is run, access history and responseBody needs to return history (?) optional
       async after (responseBody, history) {
         return history
