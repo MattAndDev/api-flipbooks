@@ -1,0 +1,38 @@
+{
+  "name": "api-flipbooks",
+  "version": "0.0.1",
+  "description": "Handcrafted tool for strict API testing",
+  "keywords": [
+    "API",
+    "test"
+  ],
+  "homepage": "https://github.com/MattAndDev/api-flipbooks#readme",
+  "bugs": {
+    "url": "https://github.com/MattAndDev/api-flipbooks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattAndDev/api-flipbooks"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Matteo Maronati",
+    "email": "me@mattinthe.net",
+    "url": "https://mattinthe.net/"
+  },
+  "main": "index.js",
+  "bin": "./bin/api-flibooks.js",
+  "scripts": {
+    "test": "node test.js",
+    "lint": "standard"
+  },
+  "dependencies": {
+    "sort-package-json": "^1.15.0"
+  },
+  "devDependencies": {
+    "standard": "^11.0.1"
+  },
+  "engines": {
+    "node": ">=8.11.2"
+  }
+}
