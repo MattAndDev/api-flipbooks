@@ -52,7 +52,7 @@ class ApiFlipbooks {
     for (var i = 0; i < flipbookConfig.scenes.length; i++) {
       // shorten
       let scene = flipbookConfig.scenes[i]
-      if (!scene.lifecycle)  scene.lifecycle = {}
+      if (!scene.lifecycle) scene.lifecycle = {}
       if (scene.lifecycle.before) {
         scene = await scene.lifecycle.before(flibookHistory, scene)
       }
@@ -60,7 +60,7 @@ class ApiFlipbooks {
       if (scene.validation.statusCode) {
         await validateStatusCode(scene.validation.statusCode, res.code)
       }
-      if (scene.validation.headerSchema) { 
+      if (scene.validation.headerSchema) {
         await validateHeaders(scene.validation.headerSchema, res.headers)
       }
       if (scene.validation.bodySchema) {
