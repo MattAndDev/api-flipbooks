@@ -21,7 +21,7 @@
     "url": "https://mattinthe.net/"
   },
   "main": "index.js",
-  "bin": "./bin/api-flibooks.js",
+  "bin": "./lib/bin/api-flibooks.js",
   "scripts": {
     "test": "node test.js",
     "lint": "standard"
