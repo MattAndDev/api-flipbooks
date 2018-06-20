@@ -1,8 +1,8 @@
 const fs = require('fs')
-const utils = require('./utils')
-const validateBody = require('./validate/validate-body')
-const validateHeaders = require('./validate/validate-headers')
-const validateStatusCode = require('./validate/validate-status-code')
+const utils = require('./lib/utils')
+const validateBody = require('./lib/validate/validate-body')
+const validateHeaders = require('./lib/validate/validate-headers')
+const validateStatusCode = require('./lib/validate/validate-status-code')
 
 class ApiFlipbooks {
   constructor (config) {
