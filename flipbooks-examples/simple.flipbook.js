@@ -30,8 +30,7 @@ module.exports = {
             should: async (title) => { return title.length >= 10 }
           }
         }
-      },
-      lifecicle: {}
+      }
     }
   ]
 }

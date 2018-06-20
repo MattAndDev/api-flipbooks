@@ -50,12 +50,25 @@ class ApiFlipbooks {
   async playFlipbook (flipbookConfig) {
     var flibookHistory = {}
     for (var i = 0; i < flipbookConfig.scenes.length; i++) {
-      if (flipbookConfig.scenes[i].lifecicle.before) flipbookConfig.scenes[i] = await flipbookConfig.scenes[i].lifecicle.before(flibookHistory, flipbookConfig.scenes[i])
-      var res = await utils.request(flipbookConfig.scenes[i].request).catch((e) => { console.error(e) })
-      if (flipbookConfig.scenes[i].validation.statusCode) await validateStatusCode(flipbookConfig.scenes[i].validation.statusCode, res.code)
-      if (flipbookConfig.scenes[i].validation.headerSchema) await validateHeaders(flipbookConfig.scenes[i].validation.headerSchema, res.headers)
-      if (flipbookConfig.scenes[i].validation.bodySchema) await validateBody(flipbookConfig.scenes[i].validation.bodySchema, res.body)
-      if (flipbookConfig.scenes[i].lifecicle.after) flibookHistory = await flipbookConfig.scenes[i].lifecicle.after(res.body, flibookHistory)
+      // shorten
+      let scene = flipbookConfig.scenes[i]
+      if (!scene.lifecycle)  scene.lifecycle = {}
+      if (scene.lifecycle.before) {
+        scene = await scene.lifecycle.before(flibookHistory, scene)
+      }
+      var res = await utils.request(scene.request).catch((e) => { console.error(e) })
+      if (scene.validation.statusCode) {
+        await validateStatusCode(scene.validation.statusCode, res.code)
+      }
+      if (scene.validation.headerSchema) { 
+        await validateHeaders(scene.validation.headerSchema, res.headers)
+      }
+      if (scene.validation.bodySchema) {
+        await validateBody(scene.validation.bodySchema, res.body)
+      }
+      if (scene.lifecycle.after) {
+        flibookHistory = await scene.lifecycle.after(res.body, flibookHistory)
+      }
     }
   }
 }

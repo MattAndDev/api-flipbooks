@@ -81,8 +81,8 @@ module.exports = {
       }
     },
 
-    // lifecicle hooks for this scene
-    lifecicle: {
+    // lifecycle hooks for this scene (?optional)
+    lifecycle: {
 
       // before the scene is run, access history and scene needs to return the scene (?) optional
       async before (history, scene) {
