@@ -12,6 +12,9 @@ const logger = (type, message) => {
   if (type === 'success') {
     return console.log('\x1b[32m%s\x1b[0m', message)
   }
+  if (type === 'info') {
+    return console.log(message)
+  }
   throw `Utils.logger does not support type: ${type}`
 }
 
