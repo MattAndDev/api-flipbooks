@@ -1,14 +1,14 @@
 module.exports = {
-  title: 'Test jsonplaceholder api:',
+  title: 'Test reqres.in api:',
   scenes: [
     {
-      describe: 'Get one post:',
+      describe: 'Get one user and validate response:',
       request: {
         options: {
-          host: 'jsonplaceholder.typicode.com',
+          host: 'reqres.in',
           protocol: 'https:',
           method: 'GET',
-          path: '/posts/1',
+          path: '/api/users/2',
           port: 443,
           agent: false,
           headers: {
@@ -19,15 +19,23 @@ module.exports = {
       validation: {
         statusCode: 200,
         headerSchema: {
-          'access-control-allow-credentials': 'true'
+          'access-control-allow-origin': '*'
         },
         bodySchema: {
-          userId: {
-            _type: 'integer'
-          },
-          title: {
-            _type: 'string',
-            should: async (title) => { return title.length >= 10 }
+          data: {
+            _type: 'object',
+            _keys: {
+              id: {
+                _type: 'integer'
+              },
+              first_name: {
+                _type: 'string',
+                should: async (title) => { return title.length >= 2 }
+              },
+              last_name: {
+                _type: 'string'
+              }
+            }
           }
         }
       }

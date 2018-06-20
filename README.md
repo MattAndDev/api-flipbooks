@@ -105,3 +105,6 @@ module.exports = {
 
 Under really heavy development
 
+## special thanks
+
+[reqres.in](https://reqres.in/) for providing test api endpoints
