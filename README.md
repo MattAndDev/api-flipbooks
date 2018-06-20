@@ -1,5 +1,7 @@
 # api-flipbooks
 
+
+[![circleci](https://circleci.com/gh/MattAndDev/rm-nm/tree/master.svg?style=shield&circle-token=12aedd82a9a427ca644f90be5404e1a7232da500)](https://circleci.com/gh/MattAndDev/api-flipbooks)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 > Handcrafted tool for strict API testing
 
