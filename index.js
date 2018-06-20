@@ -49,9 +49,13 @@ class ApiFlipbooks {
 
   async playFlipbook (flipbookConfig) {
     var flibookHistory = {}
+    utils.logger('info', flipbookConfig.title)
     for (var i = 0; i < flipbookConfig.scenes.length; i++) {
       // shorten
       let scene = flipbookConfig.scenes[i]
+      if (scene.describe) {
+        utils.logger('info', scene.describe)
+      }
       if (!scene.lifecycle) scene.lifecycle = {}
       if (scene.lifecycle.before) {
         scene = await scene.lifecycle.before(flibookHistory, scene)
