@@ -10,12 +10,12 @@ class ApiFlipbooks {
     let defaultConfig = {}
     // if no target passed, fail
     if (!config.target) {
-      console.error('No target directory or file provided')
+      utils.logger('error', 'No target directory or file provided')
       process.exit(1)
     }
     // if target does not exist, fail
     if (!fs.existsSync(config.target)) {
-      console.error(`ENOENT: path '${config.target}' not found`)
+      utils.logger('error', `ENOENT: path '${config.target}' not found`)
       process.exit(1)
     }
     // app logs

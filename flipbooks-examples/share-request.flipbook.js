@@ -20,7 +20,6 @@ const secondRequest = JSON.parse(JSON.stringify(baseRequest))
 firstRequest.options.path = '/api/users'
 secondRequest.options.path = '/api/colors'
 
-
 module.exports = {
   title: 'Share request flipbook example:',
   scenes: [
