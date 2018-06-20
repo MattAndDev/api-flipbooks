@@ -41,6 +41,7 @@ let myApiFlipboks = new ApiFlipbooks({ target: './target-folder' })
 
 ## flibook file
 
+The best thing is to take a look at the examples in `./flibooks-examples`
 Every flipbook file is expected to export an Object with the following properties:
 
 ```javascript
