@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Test reqres.in api:',
+  title: 'Simple flibook example:',
   scenes: [
     {
       describe: 'Get one user and validate response:',
