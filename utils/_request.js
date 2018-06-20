@@ -17,16 +17,15 @@ const request = ({options, body}) => {
       res.on('data', (resChunk) => {
         chunk += resChunk
       })
-      res.on('end', () => {
+      res.on('end', () => { chunk
+        var responseBody = chunk
         try {
-          var jsonResponse = JSON.parse(chunk)
-        } catch (e) {
-          var jsonResponse = chunk
-        }
+          responseBody = JSON.parse(chunk)
+        } catch (e) {}
         resolve({
           code: res.statusCode,
           headers: res.headers,
-          body: jsonResponse
+          body: responseBody
         })
       })
     })
