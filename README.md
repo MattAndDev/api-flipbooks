@@ -3,11 +3,13 @@
 
 [![circleci](https://circleci.com/gh/MattAndDev/rm-nm/tree/master.svg?style=shield&circle-token=12aedd82a9a427ca644f90be5404e1a7232da500)](https://circleci.com/gh/MattAndDev/api-flipbooks)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 > Handcrafted tool for strict API testing
 
-## what for
+## For whom
 
-Run synchronous interdependent api analysis based on configurable files. This approach results handy for mimicking user behaviour and analyse API endpoint behaviours in real life cases.
+Run synchronous interdependent api analysis based on configurable files.
+This approach results handy for mimicking user behaviour and analyse API endpoint behaviours in real life cases.
 
 ## usage
 
@@ -18,10 +20,10 @@ $ npm i -g api-flipbooks
 $ api-flipbooks ./flibooks-config-file.js
 ```
 
-You can also pass a folder, `api-flipbooks` will then look for all files matching `*.flipbook.js`
+You can also pass a folder, `api-flipbooks` will then look for all files matching `*.flipbook.js`:
 
 ```
-$ api-flipbooks ./folder-with-confifgs
+$ api-flipbooks ./folder-with-configs
 ```
 
 ### api
@@ -53,7 +55,7 @@ module.exports = {
   // array of api calls/test to be performed (!) required
   scenes: [
     {
-
+      describe: 'What the scene is doing'
       // http request config  (!) required
       request: {  // 
         // options for node 'http' : 'https' (!) required
@@ -93,7 +95,7 @@ module.exports = {
         return scene
       },
 
-      // adter the scene is run, access history and responseBody needs to return history (?) optional
+      // after the scene is run, access history and responseBody needs to return history (?) optional
       async after (responseBody, history) {
         return history
       }
